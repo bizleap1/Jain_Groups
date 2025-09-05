@@ -205,7 +205,7 @@ export default function HomePage() {
         id: 1,
         name: "Jain Gold Natural Toor Dal",
         description: "Premium quality toor dal with natural flavor and aroma",
-        image: "/jain_gold.png",
+        image: "/Jain_gold.png",
         features: ["100% Natural", "Rich in Protein", "No Additives"],
       },
       {

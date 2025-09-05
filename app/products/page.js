@@ -29,14 +29,14 @@ const products = [
   {
     id: 4,
     name: "Parasmani Chana Dal",
-    description: "Nutritious cattle feed for healthy livestock",
+    description: "Finely processed chana dal for perfect cooking results",
     image: "/chana_dal.png",
     features: ["High Nutrition", "Rich in Protein", "Great Taste"]
   },
   {
     id: 5,
     name: "Jain Gold Premium Toor Dal",
-    description: "Premium cattle feed for enhanced milk production",
+    description: "Premium quality toor dal with Premium flavor and aroma",
     image: "/Jain_premium.png",
     features: ["High Nutrition", "Premium Quality", "Rich in Protein"]
   },
