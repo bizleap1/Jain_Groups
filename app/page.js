@@ -138,11 +138,16 @@ export default function HomePage() {
 
           {/* Illustration */}
           <motion.div
-            variants={fadeIn}
-            className="w-full h-80 md:h-96 bg-green-50 rounded-lg flex items-center justify-center"
-          >
-            image here
-          </motion.div>
+  variants={fadeIn}
+  className="w-full h-80 md:h-96  rounded-lg flex items-center justify-center"
+>
+  <img
+    src="/lentils.jpg"
+    alt="Lentils"
+    className="max-h-full max-w-full object-contain rounded-lg"
+  />
+</motion.div>
+
         </div>
       </AnimatedSection>
 
