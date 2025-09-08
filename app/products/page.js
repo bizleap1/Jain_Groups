@@ -8,45 +8,56 @@ const products = [
   {
     id: 1,
     name: "Jain Gold Natural Toor Dal",
-    description: "Premium quality toor dal with natural flavor and aroma",
+    description: "Premium quality toor dal with natural flavor and aroma, sourced from the finest farms in Maharashtra",
     image: "/Jain_gold.png",
-    features: ["100% Natural", "Rich in Protein", "No Additives"]
+    features: ["100% Natural", "Rich in Protein", "No Additives", "Non-GMO"],
+    tag: "Premium Pick"
   },
   {
     id: 2,
     name: "Parasmani Toor Dal",
-    description: "Finely processed toor dal for perfect cooking results",
+    description: "Finely processed toor dal for perfect cooking results every time",
     image: "/Parasmani_toor.png",
-    features: ["Easy to Cook", "High Nutrition", "Premium Quality"]
+    features: ["Easy to Cook", "High Nutrition", "Premium Quality", "Quick Cooking"],
+    tag: "Chef's Choice"
   },
   {
     id: 3,
     name: "Pariwar Toor Dal",
-    description: "Family pack of nutritious toor dal for everyday meals",
+    description: "Family pack of nutritious toor dal for everyday meals and special occasions",
     image: "/pariwar_toor.png",
-    features: ["Family Pack", "Economical", "Great Taste"]
+    features: ["Family Pack", "Economical", "Great Taste", "Versatile"],
+    tag: "Family Favorite"
   },
   {
     id: 4,
     name: "Parasmani Chana Dal",
-    description: "Finely processed chana dal for perfect cooking results",
+    description: "Finely processed chana dal with exceptional flavor and texture",
     image: "/chana_dal.png",
-    features: ["High Nutrition", "Rich in Protein", "Great Taste"]
+    features: ["High Nutrition", "Rich in Protein", "Great Taste", "Easy to Digest"],
+    tag: "Nutritious"
   },
   {
     id: 5,
     name: "Jain Gold Premium Toor Dal",
-    description: "Premium quality toor dal with Premium flavor and aroma",
+    description: "Our premium offering with superior quality and exceptional taste",
     image: "/Jain_premium.png",
-    features: ["High Nutrition", "Premium Quality", "Rich in Protein"]
+    features: ["High Nutrition", "Premium Quality", "Rich in Protein", "Award Winning"],
+    tag: "Premium"
   },
-  
 ];
 
 // Animation variants
 const fadeIn = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { 
+      duration: 0.6,
+      ease: "easeOut"
+    } 
+  }
 };
 
 const staggerContainer = {
@@ -54,7 +65,19 @@ const staggerContainer = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2
+      staggerChildren: 0.15
+    }
+  }
+};
+
+const scaleUp = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut"
     }
   }
 };
@@ -64,99 +87,139 @@ export default function ProductsPage() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 py-16 px-4 sm:px-6 lg:px-8">
       {/* Header Section */}
       <motion.section 
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
-        className="text-center mb-16"
+        className="text-center mb-20 max-w-4xl mx-auto"
       >
+        <motion.div 
+          variants={fadeIn}
+          className="inline-block mb-4"
+        >
+          <div className="w-24 h-1 bg-gradient-to-r from-amber-500 to-amber-600 rounded-full mx-auto"></div>
+        </motion.div>
+        
         <motion.h1 
           variants={fadeIn}
-          className="text-4xl md:text-5xl font-bold text-pink-600 mb-4"
+          className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-800 mb-6"
         >
-          Our Products
+          Our <span className="text-amber-600"></span> Products
         </motion.h1>
+        
         <motion.p 
           variants={fadeIn}
-          className="text-lg text-gray-700 max-w-2xl mx-auto"
+          className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed"
         >
-          Discover our range of high-quality agricultural products, crafted with care and tradition from the heart of Maharashtra.
+          Discover our range of high-quality products, crafted with care and tradition from the heart of Maharashtra's finest farms.
         </motion.p>
       </motion.section>
 
-      {/* Products Grid - No Cards */}
+      {/* Products Grid */}
       <motion.section
         ref={ref}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
         variants={staggerContainer}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 max-w-6xl mx-auto" 
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto" 
       >
         {products.map((product, index) => (
           <motion.div
             key={product.id}
             variants={fadeIn}
-            className="group relative"
+            className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
           >
-            {/* Product Image with subtle hover effect - LARGER SIZE */}
-            <div className="relative overflow-hidden rounded-lg bg-gray-50 p-10 flex items-center justify-center mb-6"> {/* Increased padding */}
-              <motion.img
-                initial={{ scale: 1 }}
-                whileHover={{ scale: 1.08 }} 
-                transition={{ duration: 0.5 }}
-                src={product.image}
-                alt={product.name}
-                className="max-h-96 md:max-h-[28rem] object-contain w-full"  
-              />
+            {/* Product Tag */}
+            <div className="absolute top-4 right-4 z-10">
+              <span className="px-3 py-1.5 text-xs font-semibold bg-amber-500 text-white rounded-full shadow-md">
+                {product.tag}
+              </span>
+            </div>
+            
+            {/* Product Image */}
+            <div className="relative h-96 overflow-hidden bg-gradient-to-br from-amber-50 to-slate-100 flex items-center justify-center p-10">
+  <motion.img
+    initial={{ scale: 1 }}
+    whileHover={{ scale: 1.08 }}
+    transition={{ duration: 0.5 }}
+    src={product.image}
+    alt={product.name}
+    className="max-h-80 object-contain w-full transition-all duration-500 group-hover:drop-shadow-xl"
+  />
+
               
               {/* Quick View Button */}
               <motion.button
                 initial={{ opacity: 0, y: 10 }}
                 whileHover={{ opacity: 1, y: 0 }}
                 onClick={() => setSelectedProduct(product)}
-                className="absolute bottom-6 right-6 bg-pink-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-md" 
+                className="absolute bottom-6 right-6 bg-amber-600 text-white px-4 py-2.5 rounded-full text-sm font-medium shadow-lg hover:bg-amber-700 transition-colors flex items-center gap-2" 
               >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                  <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
+                </svg>
                 Quick View
               </motion.button>
             </div>
             
             {/* Product Details */}
-            <div className="text-center">
+            <div className="p-6">
               <motion.h3 
-                className="text-2xl font-semibold text-gray-800 mb-3" 
+                className="text-xl font-bold text-slate-800 mb-3 group-hover:text-amber-700 transition-colors" 
               >
                 {product.name}
               </motion.h3>
+              
               <motion.p 
-                className="text-gray-600 mb-4 text-lg" 
+                className="text-slate-600 mb-4 leading-relaxed" 
               >
                 {product.description}
               </motion.p>
               
               {/* Features */}
-              <ul className="flex flex-wrap justify-center gap-3 mb-4"> 
+              <ul className="flex flex-wrap gap-2 mb-5"> 
                 {product.features.map((feature, i) => (
-                  <li 
+                  <motion.li 
                     key={i}
-                    className="inline-flex items-center text-sm text-pink-600 bg-pink-50 px-3 py-1.5 rounded-full" 
+                    whileHover={{ scale: 1.05 }}
+                    className="inline-flex items-center text-xs font-medium text-amber-700 bg-amber-50 px-3 py-1.5 rounded-full border border-amber-100" 
                   >
-                    <svg className="w-4 h-4 text-pink-500 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    <svg className="w-3 h-3 text-amber-600 mr-1.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
                     </svg>
                     {feature}
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
               
               {/* Brand Tag */}
-              <div className="text-sm text-gray-500"> 
-                Jain Group Product
+              <div className="flex items-center justify-between pt-4 border-t border-slate-100">
+                <div className="text-sm text-slate-500 flex items-center">
+                  <svg className="w-4 h-4 mr-1.5 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"></path>
+                  </svg>
+                  Sourced from Maharashtra
+                </div>
+                
+                
               </div>
             </div>
           </motion.div>
         ))}
+      </motion.section>
+
+      {/* CTA Section */}
+      <motion.section 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+        variants={staggerContainer}
+        className="max-w-4xl mx-auto mt-24 text-center"
+      >
+        
       </motion.section>
 
       {/* Product Modal */}
@@ -165,38 +228,38 @@ export default function ProductsPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
+          className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50 backdrop-blur-sm"
           onClick={() => setSelectedProduct(null)}
         >
           <motion.div 
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
-            transition={{ type: "spring", damping: 25 }}
-            className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+            className="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="relative">
               <button 
                 onClick={() => setSelectedProduct(null)}
-                className="absolute top-4 right-4 z-10 bg-white rounded-full p-2 shadow-md"
+                className="absolute top-4 right-4 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-slate-100 transition-colors"
               >
-                <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
               </button>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8">
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="flex items-center justify-center bg-gray-100 rounded-xl p-10" 
+                  className="flex items-center justify-center bg-gradient-to-br from-amber-50 to-slate-100 rounded-2xl p-10" 
                 >
                   <img 
                     src={selectedProduct.image} 
                     alt={selectedProduct.name}
-                    className="max-h-96 object-contain w-full" 
+                    className="max-h-80 object-contain w-full" 
                   />
                 </motion.div>
                 
@@ -204,23 +267,30 @@ export default function ProductsPage() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.3 }}
+                  className="py-4"
                 >
-                  <h2 className="text-3xl font-bold text-gray-800 mb-4">{selectedProduct.name}</h2> 
-                  <p className="text-gray-600 mb-6 text-lg">{selectedProduct.description}</p> 
+                  <div className="mb-2">
+                    <span className="px-3 py-1 text-xs font-semibold bg-amber-500 text-white rounded-full">
+                      {selectedProduct.tag}
+                    </span>
+                  </div>
                   
-                  <div className="mb-8"> {/* Increased margin */}
-                    <h3 className="text-xl font-semibold text-gray-800 mb-4">Features</h3>
-                    <ul className="space-y-3"> {/* Increased spacing */}
+                  <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-4">{selectedProduct.name}</h2> 
+                  <p className="text-slate-600 mb-6 leading-relaxed">{selectedProduct.description}</p> 
+                  
+                  <div className="mb-8">
+                    <h3 className="text-xl font-semibold text-slate-800 mb-4">Key Features</h3>
+                    <ul className="space-y-3">
                       {selectedProduct.features.map((feature, i) => (
                         <motion.li 
                           key={i}
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{ delay: 0.4 + i * 0.1 }}
-                          className="flex items-center text-lg" 
+                          className="flex items-center text-slate-700" 
                         >
-                          <svg className="w-6 h-6 text-pink-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"> 
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                          <svg className="w-5 h-5 text-amber-600 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
                           </svg>
                           {feature}
                         </motion.li>
@@ -229,82 +299,34 @@ export default function ProductsPage() {
                   </div>
                   
                   <motion.div 
-                    className="bg-pink-50 p-6 rounded-xl" 
+                    className="bg-amber-50 p-6 rounded-xl border border-amber-100" 
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.6 }}
                   >
-                    <h3 className="font-semibold text-pink-700 mb-3 text-lg">Quality Assurance</h3> 
-                    <p className="text-pink-600 text-md">All our products undergo rigorous quality checks to ensure you receive only the best.</p>
+                    <h3 className="font-semibold text-amber-800 mb-3 flex items-center">
+                      <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
+                      </svg>
+                      Quality Assurance
+                    </h3>
+                    <p className="text-amber-700">All our products undergo rigorous quality checks to ensure you receive only the best agricultural products, sourced directly from trusted farmers.</p>
                   </motion.div>
+                  
+                  <div className="mt-8 flex gap-4">
+                    <button className="flex-1 bg-amber-600 text-white py-3 rounded-xl font-semibold hover:bg-amber-700 transition-colors shadow-md">
+                      Add to Cart
+                    </button>
+                    <button className="flex-1 border border-amber-600 text-amber-700 py-3 rounded-xl font-semibold hover:bg-amber-50 transition-colors">
+                      Buy Now
+                    </button>
+                  </div>
                 </motion.div>
               </div>
             </div>
           </motion.div>
         </motion.div>
       )}
-
-      {/* Brand Story Section */}
-      <motion.section 
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={staggerContainer}
-        className="max-w-4xl mx-auto mt-20 px-4"
-      >
-        <motion.h2 
-          variants={fadeIn}
-          className="text-3xl font-bold text-center text-blue-700 mb-8"
-        >
-          Our Commitment to Quality
-        </motion.h2>
-        
-        <motion.div 
-          variants={staggerContainer}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6"
-        >
-          <motion.div 
-            variants={fadeIn}
-            className="p-6 rounded-2xl text-center"
-          >
-            <div className="inline-block p-3 rounded-full bg-pink-100 mb-4">
-              <svg className="w-8 h-8 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-              </svg>
-            </div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">Quality Assurance</h3>
-            <p className="text-gray-600">Rigorous quality checks at every stage of production</p>
-          </motion.div>
-          
-          <motion.div 
-            variants={fadeIn}
-            transition={{ delay: 0.2 }}
-            className="p-6 rounded-2xl text-center"
-          >
-            <div className="inline-block p-3 rounded-full bg-green-100 mb-4">
-              <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-              </svg>
-            </div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">Farmer First</h3>
-            <p className="text-gray-600">Direct relationships with farmers for the best produce</p>
-          </motion.div>
-          
-          <motion.div 
-            variants={fadeIn}
-            transition={{ delay: 0.4 }}
-            className="p-6 rounded-2xl text-center"
-          >
-            <div className="inline-block p-3 rounded-full bg-blue-100 mb-4">
-              <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-              </svg>
-            </div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">Sustainable Practices</h3>
-            <p className="text-gray-600">Environmentally responsible processing methods</p>
-          </motion.div>
-        </motion.div>
-      </motion.section>
     </div>
   );
 }
