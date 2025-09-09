@@ -137,16 +137,12 @@ export default function HomePage() {
           </motion.div>
 
           {/* Illustration */}
-          <motion.div
-  variants={fadeIn}
-  className="w-full h-80 md:h-96  rounded-lg flex items-center justify-center"
->
-  <img
-    src="/lentils.jpg"
-    alt="Lentils"
-    className="max-h-full max-w-full object-contain rounded-lg"
-  />
-</motion.div>
+          <img
+  src="/about.png"
+  alt="Lentils"
+  className="w-full max-w-lg object-contain rounded-lg mx-auto"
+/>
+
 
         </div>
       </AnimatedSection>
@@ -416,34 +412,52 @@ export default function HomePage() {
 
       {/* Benefits */}
       <section className="py-20 bg-[#FCF9F4] relative z-10">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-green-900">
-           Benefits of Jain Group Dal
-          </h2>
-          <div className="grid md:grid-cols-2 gap-10">
-            {benefits.map((benefit, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="flex items-center gap-4 bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition-all"
-              >
-                <div className="flex items-center justify-center w-14 h-14 rounded-full bg-green-100">
-                  {benefit.icon}
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-800">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm">{benefit.desc}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+  <div className="max-w-[1920px] mx-auto px-6">
+    <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-green-900">
+      Benefits of Jain Group Dal
+    </h2>
+
+    <div className="grid md:grid-cols-2 gap-10 items-center">
+      {/* Left side: Benefits in 2 columns */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {benefits.map((benefit, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: i * 0.1 }}
+            className="flex items-start gap-4 bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition-all"
+          >
+            <div className="flex items-center justify-center w-14 h-14 rounded-full bg-green-100">
+              {benefit.icon}
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-gray-800">
+                {benefit.title}
+              </h3>
+              <p className="text-gray-600 text-sm">{benefit.desc}</p>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Right side: HUGE Image */}
+      {/* Right side: HUGE Image */}
+<div className="flex justify-center md:justify-end overflow-visible">
+  <img
+    src="/whyus.png"
+    alt="Why Us"
+    className="w-[180%] md:w-[150%] object-contain"
+  />
+</div>
+
+
+    </div>
+  </div>
+</section>
+
+
 
       {/* Partners */}
       <AnimatedSection className="max-w-7xl mx-auto px-4 py-24">
