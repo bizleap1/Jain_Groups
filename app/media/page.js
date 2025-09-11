@@ -20,27 +20,41 @@ export default function MediaPage() {
   };
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 py-24 px-6">
-      {/* Hero Section */}
+    <div className="relative min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
+      
+      {/* 🔹 Hero Banner Section */}
+      <section className="relative w-full h-[30vh] md:h-[50vh] overflow-hidden z-0">
+        <img
+          src="/banner1.jpg"
+          alt="Hero Background"
+          className="w-full h-full object-cover object-center md:object-top"
+        />
+        <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+          <h1 className="text-white text-4xl md:text-6xl font-light text-center drop-shadow-lg">
+            Media & Gallery
+          </h1>
+        </div>
+      </section>
+
+      {/* 🔹 Intro Text */}
       <motion.section
         initial="hidden"
         animate="visible"
         variants={fadeInUp}
-        className="text-center mb-16"
+        className="text-center py-12 px-6"
       >
-        <h1 className="text-5xl md:text-6xl font-bold text-pink-600 mb-4">Media & Gallery</h1>
         <p className="text-gray-700 text-lg md:text-xl max-w-2xl mx-auto">
           Explore our latest events, press coverage, and highlights of Jain Group’s journey.
         </p>
       </motion.section>
 
-      {/* Media Grid */}
+      {/* 🔹 Media Grid */}
       <motion.section
         ref={ref}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
         variants={fadeInUp}
-        className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
+        className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-6"
       >
         {mediaItems.map((item, idx) => (
           <motion.div
@@ -72,9 +86,9 @@ export default function MediaPage() {
         ))}
       </motion.section>
 
-      {/* Optional CTA */}
+      {/* 🔹 CTA Section */}
       <motion.section
-        className="text-center mt-24"
+        className="text-center mt-24 px-6"
         initial={{ opacity: 0, y: 20 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7 }}

@@ -68,33 +68,35 @@ export default function AboutPage() {
 
   return (
     <div className="bg-gradient-to-b from-gray-50 to-gray-100 min-h-screen overflow-hidden">
-      {/* Animated background elements */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+      
+      {/* 🔹 Hero Banner Section */}
+      <section className="relative w-full h-[30vh] md:h-[50vh] overflow-hidden z-0">
+        <img
+          src="/banner1.jpg"
+          alt="Hero Background"
+          className="w-full h-full object-cover object-center md:object-top"
+        />
+        <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+          <h1 className="text-white text-4xl md:text-6xl font-light text-center drop-shadow-lg">
+            About Us
+          </h1>
+        </div>
+      </section>
+
+      {/* 🔹 Animated background elements (behind everything) */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none z-[-1]">
         <motion.div 
           className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-pink-100 opacity-20"
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, 90, 0],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "linear"
-          }}
+          animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
         />
         <motion.div 
           className="absolute bottom-1/3 right-1/3 w-48 h-48 rounded-full bg-blue-100 opacity-20"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            rotate: [90, 0, 90],
-          }}
-          transition={{
-            duration: 12,
-            repeat: Infinity,
-            ease: "linear"
-          }}
+          animate={{ scale: [1.2, 1, 1.2], rotate: [90, 0, 90] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
         />
       </div>
+
 
       {/* Intro */}
       <motion.section 
@@ -117,12 +119,7 @@ export default function AboutPage() {
               </svg>
             </div>
           </motion.div>
-          <motion.h1 
-            variants={fadeIn}
-            className="text-4xl md:text-5xl font-bold mb-4 text-pink-600"
-          >
-            About Us
-          </motion.h1>
+          
           <motion.p 
             variants={fadeIn}
             className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto"

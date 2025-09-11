@@ -68,16 +68,8 @@ export default function HomePage() {
       title: "Farm-Fresh Pulses",
       desc: "Directly sourced from farmers, ensuring natural quality.",
     },
-    {
-      icon: <GiThermometerCold className="w-8 h-8 text-red-500" />,
-      title: "No Cold Chain Storage",
-      desc: "Naturally stored without artificial refrigeration.",
-    },
-    {
-      icon: <GiDeliveryDrone className="w-8 h-8 text-green-500" />,
-      title: "Quick Delivery",
-      desc: "Reaches your kitchen fresh and on time.",
-    },
+    
+   
     {
       icon: <GiGrain className="w-8 h-8 text-yellow-600" />,
       title: "Unpolished & Natural",

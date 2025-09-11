@@ -87,35 +87,53 @@ export default function ProductsPage() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 py-16 px-4 sm:px-6 lg:px-8">
-      {/* Header Section */}
-      <motion.section 
-        initial="hidden"
-        animate="visible"
-        variants={staggerContainer}
-        className="text-center mb-20 max-w-4xl mx-auto"
-      >
-        <motion.div 
-          variants={fadeIn}
-          className="inline-block mb-4"
-        >
-          <div className="w-24 h-1 bg-gradient-to-r from-amber-500 to-amber-600 rounded-full mx-auto"></div>
-        </motion.div>
-        
-        <motion.h1 
-          variants={fadeIn}
-          className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-800 mb-6"
-        >
-          Our <span className="text-amber-600"></span> Products
-        </motion.h1>
-        
-        <motion.p 
-          variants={fadeIn}
-          className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed"
-        >
-          Discover our range of high-quality products, crafted with care and tradition from the heart of Maharashtra's finest farms.
-        </motion.p>
-      </motion.section>
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
+   {/* 🔹 Hero Banner Section */}
+      <section className="relative w-full h-[30vh] md:h-[50vh] overflow-hidden z-0">
+        <img
+          src="/banner1.jpg"
+          alt="Hero Background"
+          className="w-full h-full object-cover object-center md:object-top"
+        />
+        <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+          <h1 className="text-white text-4xl md:text-6xl font-light text-center drop-shadow-lg">
+            Products
+          </h1>
+        </div>
+      </section>
+      {/* Intro Section */}
+<motion.section 
+  initial="hidden"
+  animate="visible"
+  variants={staggerContainer}
+  className="text-center mb-16 max-w-4xl mx-auto px-4"
+>
+  {/* Decorative Accent */}
+  <motion.div 
+    variants={fadeIn}
+    className="inline-block mb-4"
+  >
+    <div className="w-20 h-1 bg-gradient-to-r from-amber-500 to-amber-600 rounded-full mx-auto"></div>
+  </motion.div>
+
+  {/* Subtitle / Tagline */}
+  <motion.h2 
+    variants={fadeIn}
+    className="text-2xl md:text-3xl font-semibold text-slate-800 mb-4"
+  >
+    Quality you can trust, taste you’ll love
+  </motion.h2>
+
+  {/* Description */}
+  <motion.p 
+    variants={fadeIn}
+    className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed"
+  >
+    Discover our range of high-quality dals, carefully sourced and crafted with 
+    tradition from the heart of Maharashtra’s finest farms.
+  </motion.p>
+</motion.section>
+
 
       {/* Products Grid */}
       <motion.section

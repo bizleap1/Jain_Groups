@@ -1,6 +1,7 @@
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import FloatingWidgets from "../components/FloatingWidgets";
 
 export const metadata = {
   title: "Jain Group",
@@ -12,9 +13,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="font-sans bg-white text-gray-900">
         <Navbar />
-        {/* Add top padding/margin equal to navbar height */}
         <main className="mt-16">{children}</main>
         <Footer />
+        <FloatingWidgets />
       </body>
     </html>
   );
