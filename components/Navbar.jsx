@@ -17,7 +17,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-green-800 shadow-md overflow-hidden">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-forest-800 shadow-md overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
@@ -33,7 +33,7 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.path}
-                className="text-white font-medium hover:text-yellow-300 transition-colors"
+                className="text-white font-medium hover:text-sage-200 transition-colors"
               >
                 {item.name}
               </Link>
@@ -43,7 +43,7 @@ export default function Navbar() {
             <a
               href="/brochure.pdf"
               target="_blank"
-              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-yellow-400 text-green-900 font-semibold hover:bg-yellow-300 transition-all"
+              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-olive-400 text-forest-900 font-semibold hover:bg-olive-300 transition-all"
             >
               <Download size={18} />
               Brochure
@@ -61,13 +61,13 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-green-800 shadow-md w-full overflow-hidden">
+        <div className="md:hidden bg-forest-800 shadow-md w-full overflow-hidden">
           <div className="flex flex-col w-full px-4 pt-4 pb-6 space-y-2">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.path}
-                className="block text-white hover:text-yellow-300 font-medium px-3 py-2 rounded-md transition-colors"
+                className="block text-white hover:text-sage-200 font-medium px-3 py-2 rounded-md transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
@@ -77,7 +77,7 @@ export default function Navbar() {
             <a
               href="/brochure.pdf"
               target="_blank"
-              className="flex items-center justify-center gap-2 px-4 py-2 bg-yellow-400 text-green-900 font-semibold rounded-xl hover:bg-yellow-300 transition-all"
+              className="flex items-center justify-center gap-2 px-4 py-2 bg-olive-400 text-forest-900 font-semibold rounded-xl hover:bg-olive-300 transition-all"
             >
               <Download size={18} />
               Brochure

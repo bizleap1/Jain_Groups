@@ -20,14 +20,14 @@ export default function MediaPage() {
   };
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
+    <div className="relative min-h-screen bg-gradient-to-b from-sage-50 to-olive-50">
       
       {/* 🔹 Hero Banner Section */}
       <section className="relative w-full h-[30vh] md:h-[50vh] overflow-hidden z-0">
         <img
-          src="/banner1.jpg"
+          src="/Hero1.jpg"
           alt="Hero Background"
-          className="w-full h-full object-cover object-center md:object-top"
+          className="w-full h-full object-cover object-center md:object"
         />
         <div className="absolute inset-0 flex items-center justify-center bg-black/40">
           <h1 className="text-white text-4xl md:text-6xl font-light text-center drop-shadow-lg">
@@ -43,7 +43,7 @@ export default function MediaPage() {
         variants={fadeInUp}
         className="text-center py-12 px-6"
       >
-        <p className="text-gray-700 text-lg md:text-xl max-w-2xl mx-auto">
+        <p className="text-forest-700 text-lg md:text-xl max-w-2xl mx-auto">
           Explore our latest events, press coverage, and highlights of Jain Group’s journey.
         </p>
       </motion.section>
@@ -59,7 +59,7 @@ export default function MediaPage() {
         {mediaItems.map((item, idx) => (
           <motion.div
             key={idx}
-            className="overflow-hidden rounded-3xl shadow-xl bg-white hover:scale-105 transition-transform"
+            className="overflow-hidden rounded-3xl shadow-xl bg-white border border-sage-200 hover:scale-105 transition-transform"
             whileHover={{ scale: 1.05 }}
           >
             {item.type === "image" ? (
@@ -80,7 +80,7 @@ export default function MediaPage() {
               </div>
             )}
             <div className="p-4 text-center">
-              <h3 className="text-lg font-semibold text-gray-800">{item.alt}</h3>
+              <h3 className="text-lg font-semibold text-forest-700">{item.alt}</h3>
             </div>
           </motion.div>
         ))}
@@ -93,14 +93,14 @@ export default function MediaPage() {
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7 }}
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-pink-600 mb-4">Want More?</h2>
-        <p className="text-gray-700 mb-6">
+        <h2 className="text-3xl md:text-4xl font-bold text-brand mb-4">Want More?</h2>
+        <p className="text-olive-600 mb-6">
           Follow us on our social channels for the latest updates and media coverage.
         </p>
         <div className="flex justify-center gap-6">
-          <a href="#" className="text-blue-600 hover:text-blue-800 text-2xl">Facebook</a>
-          <a href="#" className="text-pink-600 hover:text-pink-800 text-2xl">Instagram</a>
-          <a href="#" className="text-blue-400 hover:text-blue-600 text-2xl">Twitter</a>
+          <a href="#" className="text-olive-500 hover:text-olive-700 text-2xl">Facebook</a>
+          <a href="#" className="text-forest-500 hover:text-forest-700 text-2xl">Instagram</a>
+          <a href="#" className="text-brand-dark hover:text-brand text-2xl">Twitter</a>
         </div>
       </motion.section>
     </div>

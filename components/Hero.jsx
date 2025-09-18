@@ -7,23 +7,23 @@ export default function Hero() {
     <section className="relative w-full overflow-hidden">
       {/* Background image */}
       <div
-        className="absolute inset-0 bg-no-repeat bg-right bg-cover"
-        style={{ backgroundImage: "url('/Pulses.jpg')" }}
+        className="absolute inset-0 bg-no-repeat bg-center md:bg-right bg-cover"
+        style={{ backgroundImage: "url('/Hero1.jpg')" }}
       ></div>
 
       {/* Overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/10"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-forest-900/80 to-forest-700/20"></div>
 
       {/* Content container */}
       <div className="relative z-10 max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start px-6 sm:px-12 py-12 md:py-24">
-
+        
         {/* Text Content */}
         <div className="flex-1 text-center md:text-left space-y-6 md:pr-12">
           <motion.h1
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight"
+            className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-sage-50 leading-tight"
           >
             Premium Dal & Pulses
           </motion.h1>
@@ -32,10 +32,13 @@ export default function Hero() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg sm:text-xl md:text-2xl text-white max-w-md mx-auto md:mx-0"
+            className="text-lg sm:text-xl md:text-2xl text-sage-100 max-w-md mx-auto md:mx-0"
           >
             Sourced directly from{" "}
-            <span className="font-semibold text-amber-400">Yavatmal, Maharashtra</span>, our dal and pulses are carefully selected for quality, purity, and taste.
+            <span className="font-semibold text-olive-300">
+              Yavatmal, Maharashtra
+            </span>
+            , our dal and pulses are carefully selected for quality, purity, and taste.
           </motion.p>
 
           <motion.div
@@ -44,22 +47,25 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 mt-6 justify-center md:justify-start"
           >
+            {/* Secondary Button */}
             <Link
               href="/about"
-              className="px-8 py-4 rounded-lg font-semibold shadow-lg hover:shadow-2xl transition-all duration-300 bg-white text-black"
+              className="px-8 py-4 rounded-lg font-semibold shadow-lg hover:shadow-2xl transition-all duration-300 bg-sage-50 text-forest-800 hover:bg-sage-100"
             >
               Learn More
             </Link>
+
+            {/* Primary Button */}
             <Link
               href="/products"
-              className="px-8 py-4 rounded-lg font-semibold shadow-lg hover:shadow-2xl transition-all duration-300 bg-amber-400 text-black"
+              className="px-8 py-4 rounded-lg font-semibold shadow-lg hover:shadow-2xl transition-all duration-300 bg-olive-600 text-white hover:bg-olive-500"
             >
               Our Products
             </Link>
           </motion.div>
         </div>
 
-        {/* Optional empty space for desktop to keep text left */}
+        {/* Spacer for desktop layout */}
         <div className="hidden md:block flex-1"></div>
       </div>
 
@@ -71,22 +77,27 @@ export default function Hero() {
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 text-white/70"
+          className="h-6 w-6 text-sage-200"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"
+          />
         </svg>
       </motion.div>
 
       <style jsx>{`
         section {
-          min-height: 50vh; /* mobile: image + text fits nicely */
+          min-height: 50vh; /* mobile */
         }
         @media (min-width: 768px) {
           section {
-            min-height: 70vh; /* desktop: leave 30% gap at bottom */
+            min-height: 70vh; /* desktop */
           }
         }
       `}</style>
