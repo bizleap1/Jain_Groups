@@ -1,106 +1,170 @@
 "use client";
-import { motion } from "framer-motion";
-import Link from "next/link";
+
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+const slides = [
+  {
+    id: 1,
+    image: "/Hero2.jpg",
+    title: "Healthy Pulses from Farms",
+    description: "",
+    mobilePosition: { top: "10%", left: "50%", transform: "translateX(-50%)" },
+    pcPosition: { top: "10%", left: "50%", transform: "translateX(-50%)" },
+    titleColor: "text-orange-500",
+    descColor: "text-yellow-600",
+  },
+  {
+    id: 2,
+    image: "/Hero4.jpg",
+    title: "100% Natural & Pure",
+    description: "",
+    mobilePosition: { top: "10%", left: "50%", transform: "translateX(-50%)" },
+    pcPosition: { top: "10%", left: "50%", transform: "translateX(-50%)" },
+    titleColor: "text-yellow-900",
+    descColor: "text-white",
+  },
+  {
+    id: 3,
+    image: "/Hero2.jpg",
+    title: "Farm Fresh Quality",
+    description: "",
+    mobilePosition: { top: "10%", left: "50%", transform: "translateX(-50%)" },
+    pcPosition: { top: "10%", left: "50%", transform: "translateX(-50%)" },
+    titleColor: "text-orange-500",
+    descColor: "text-white",
+  },
+  {
+    id: 4,
+    image: "/Hero4.jpg",
+    title: "Traditional Goodness",
+    description: "",
+    mobilePosition: { top: "10%", left: "50%", transform: "translateX(-50%)" },
+    pcPosition: { top: "10%", left: "50%", transform: "translateX(-50%)" },
+    titleColor: "text-yellow-900",
+    descColor: "text-gray-200",
+  },
+];
 
 export default function Hero() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const nextSlide = () =>
+    setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+  const prevSlide = () =>
+    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+
+  useEffect(() => {
+    const interval = setInterval(nextSlide, 5000);
+    return () => clearInterval(interval);
+  }, [currentSlide]);
+
+  const currentSlideData = slides[currentSlide];
+
   return (
-    <section className="relative w-full overflow-hidden">
-      {/* Background image */}
-      <div
-        className="absolute inset-0 bg-no-repeat bg-center md:bg-right bg-cover"
-        style={{ backgroundImage: "url('/Hero1.jpg')" }}
-      ></div>
-
-      {/* Overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-r from-forest-900/80 to-forest-700/20"></div>
-
-      {/* Content container */}
-      <div className="relative z-10 max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start px-6 sm:px-12 py-12 md:py-24">
-        
-        {/* Text Content */}
-        <div className="flex-1 text-center md:text-left space-y-6 md:pr-12">
-          <motion.h1
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-sage-50 leading-tight"
-          >
-            Premium Dal & Pulses
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg sm:text-xl md:text-2xl text-sage-100 max-w-md mx-auto md:mx-0"
-          >
-            Sourced directly from{" "}
-            <span className="font-semibold text-olive-300">
-              Yavatmal, Maharashtra
-            </span>
-            , our dal and pulses are carefully selected for quality, purity, and taste.
-          </motion.p>
-
+    <section className="relative w-full">
+      <div className="relative w-full">
+        <AnimatePresence mode="wait">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 mt-6 justify-center md:justify-start"
+            key={currentSlide}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+            className="relative w-full"
           >
-            {/* Secondary Button */}
-            <Link
-              href="/about"
-              className="px-8 py-4 rounded-lg font-semibold shadow-lg hover:shadow-2xl transition-all duration-300 bg-sage-50 text-forest-800 hover:bg-sage-100"
-            >
-              Learn More
-            </Link>
+            {/* Image */}
+            <div className="w-full md:h-[90vh]">
+              <img
+                src={currentSlideData.image}
+                alt=""
+                className="w-full h-full object-cover object-bottom sm:object-cover"
+              />
+            </div>
 
-            {/* Primary Button */}
-            <Link
-              href="/products"
-              className="px-8 py-4 rounded-lg font-semibold shadow-lg hover:shadow-2xl transition-all duration-300 bg-olive-600 text-white hover:bg-olive-500"
+            {/* Mobile Text - no wrapping */}
+            <div
+              className="absolute z-10 p-4 sm:hidden"
+              style={currentSlideData.mobilePosition}
             >
-              Our Products
-            </Link>
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                // keep text on single line and allow horizontal scroll on tiny screens
+                className={`text-2xl font-extrabold mb-2 ${currentSlideData.titleColor} whitespace-nowrap`}
+                style={{ display: "inline-block" }}
+              >
+                {currentSlideData.title}
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className={`${currentSlideData.descColor} whitespace-nowrap`}
+                style={{ display: "inline-block" }}
+              >
+                {currentSlideData.description}
+              </motion.p>
+            </div>
+
+            {/* PC Text - no wrapping */}
+            <div
+              className="absolute z-10 p-6 hidden sm:block"
+              style={currentSlideData.pcPosition}
+            >
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className={`text-4xl md:text-5xl font-extrabold mb-3 ${currentSlideData.titleColor} whitespace-nowrap`}
+                style={{ display: "inline-block" }}
+              >
+                {currentSlideData.title}
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className={`text-xl md:text-2xl ${currentSlideData.descColor} whitespace-nowrap`}
+                style={{ display: "inline-block" }}
+              >
+                {currentSlideData.description}
+              </motion.p>
+            </div>
+
+            {/* Mobile Arrows */}
+            <div
+              className="sm:hidden absolute top-1/2 left-2 transform -translate-y-1/2 z-20 cursor-pointer text-white text-2xl bg-black/30 rounded-full w-8 h-8 flex items-center justify-center"
+              onClick={prevSlide}
+            >
+              &#10094;
+            </div>
+            <div
+              className="sm:hidden absolute top-1/2 right-2 transform -translate-y-1/2 z-20 cursor-pointer text-white text-2xl bg-black/30 rounded-full w-8 h-8 flex items-center justify-center"
+              onClick={nextSlide}
+            >
+              &#10095;
+            </div>
+
+            {/* PC Arrows */}
+            <div
+              className="hidden sm:flex absolute top-1/2 left-4 transform -translate-y-1/2 z-20 cursor-pointer text-white text-3xl bg-black/30 rounded-full w-12 h-12 items-center justify-center hover:bg-black/50 transition-all"
+              onClick={prevSlide}
+            >
+              &#10094;
+            </div>
+            <div
+              className="hidden sm:flex absolute top-1/2 right-4 transform -translate-y-1/2 z-20 cursor-pointer text-white text-3xl bg-black/30 rounded-full w-12 h-12 items-center justify-center hover:bg-black/50 transition-all"
+              onClick={nextSlide}
+            >
+              &#10095;
+            </div>
           </motion.div>
-        </div>
-
-        {/* Spacer for desktop layout */}
-        <div className="hidden md:block flex-1"></div>
+        </AnimatePresence>
       </div>
-
-      {/* Bottom arrow indicator */}
-      <motion.div
-        className="absolute bottom-6 left-1/2 transform -translate-x-1/2"
-        animate={{ y: [0, -10, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 text-sage-200"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 14l-7 7m0 0l-7-7m7 7V3"
-          />
-        </svg>
-      </motion.div>
-
-      <style jsx>{`
-        section {
-          min-height: 50vh; /* mobile */
-        }
-        @media (min-width: 768px) {
-          section {
-            min-height: 70vh; /* desktop */
-          }
-        }
-      `}</style>
     </section>
   );
 }

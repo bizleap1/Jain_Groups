@@ -66,6 +66,18 @@ export default function AboutPage() {
   // For stats section
   const [statsRef, statsInView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
+  // Timeline images data - add images for alternate entries
+  const timelineImages = [
+    "/Hero1.jpg", // 1990
+    null, // 2000 - no image
+    "/Hero1.jpg", // 2010
+    null, // 2012 - no image
+    "/Hero1.jpg", // 2016
+    null, // 2020 - no image
+    "/Hero1.jpg", // 2023
+    null, // 2024 - no image
+  ];
+
   return (
     <div className="bg-gradient-to-b from-sage-50 to-sage-100 min-h-screen overflow-hidden">
       
@@ -96,7 +108,6 @@ export default function AboutPage() {
           transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
         />
       </div>
-
 
       {/* Intro */}
       <motion.section 
@@ -181,11 +192,23 @@ export default function AboutPage() {
                 </div>
                 <div className="absolute left-0 md:left-1/2 w-4 h-4 rounded-full bg-sage-500 border-4 border-white transform -translate-x-1/2 shadow-lg"></div>
                 <div className="md:w-1/2 md:pl-12">
-                  <ul className="bg-white p-6 rounded-xl shadow-lg space-y-2">
-                    <li className="text-forest-700">Founded Jain Trading Company in Sardar Chowk, Yavatmal</li>
-                    <li className="text-forest-700">Started trading all kinds of grains & seeds</li>
-                    <li className="text-forest-700">Built a reputation as a reliable local grain shop</li>
-                  </ul>
+                  <div className="bg-white p-6 rounded-xl shadow-lg">
+                    {/* Image for this timeline entry */}
+                    {timelineImages[0] && (
+                      <div className="mb-4 flex justify-center">
+                        <img 
+                          src={timelineImages[0]} 
+                          alt="1990 Timeline" 
+                          className="w-50 h-50 object-cover rounded-lg shadow-md"
+                        />
+                      </div>
+                    )}
+                    <ul className="space-y-2">
+                      <li className="text-forest-700">Founded Jain Trading Company in Sardar Chowk, Yavatmal</li>
+                      <li className="text-forest-700">Started trading all kinds of grains & seeds</li>
+                      <li className="text-forest-700">Built a reputation as a reliable local grain shop</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -203,11 +226,14 @@ export default function AboutPage() {
                 </div>
                 <div className="absolute left-0 md:left-1/2 w-4 h-4 rounded-full bg-olive-500 border-4 border-white transform -translate-x-1/2 shadow-lg"></div>
                 <div className="md:w-1/2 md:pr-12">
-                  <ul className="bg-white p-6 rounded-xl shadow-lg space-y-2">
-                    <li className="text-forest-700">Established Jain Brokers – our B2B brokerage firm</li>
-                    <li className="text-forest-700">Started supplying to big markets & direct companies across India</li>
-                    <li className="text-forest-700">Entered into bulk trading & distribution</li>
-                  </ul>
+                  <div className="bg-white p-6 rounded-xl shadow-lg">
+                    {/* No image for this entry (alternate pattern) */}
+                    <ul className="space-y-2">
+                      <li className="text-forest-700">Established Jain Brokers – our B2B brokerage firm</li>
+                      <li className="text-forest-700">Started supplying to big markets & direct companies across India</li>
+                      <li className="text-forest-700">Entered into bulk trading & distribution</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -225,11 +251,23 @@ export default function AboutPage() {
                 </div>
                 <div className="absolute left-0 md:left-1/2 w-4 h-4 rounded-full bg-forest-500 border-4 border-white transform -translate-x-1/2 shadow-lg"></div>
                 <div className="md:w-1/2 md:pl-12">
-                  <ul className="bg-white p-6 rounded-xl shadow-lg space-y-2">
-                    <li className="text-forest-700">Launched Jain Industries, our first filter plant</li>
-                    <li className="text-forest-700">Focused on cleaning & grading grains/seeds for Yavatmal consumers</li>
-                    <li className="text-forest-700">Earned reputation for top-notch quality & consumer trust</li>
-                  </ul>
+                  <div className="bg-white p-6 rounded-xl shadow-lg">
+                    {/* Image for this timeline entry */}
+                    {timelineImages[2] && (
+                      <div className="mb-4 flex justify-center">
+                        <img 
+                          src={timelineImages[2]} 
+                          alt="2010 Timeline" 
+                          className="w-50 h-50 object-cover rounded-lg shadow-md"
+                        />
+                      </div>
+                    )}
+                    <ul className="space-y-2">
+                      <li className="text-forest-700">Launched Jain Industries, our first filter plant</li>
+                      <li className="text-forest-700">Focused on cleaning & grading grains/seeds for Yavatmal consumers</li>
+                      <li className="text-forest-700">Earned reputation for top-notch quality & consumer trust</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -247,11 +285,14 @@ export default function AboutPage() {
                 </div>
                 <div className="absolute left-0 md:left-1/2 w-4 h-4 rounded-full bg-sage-600 border-4 border-white transform -translate-x-1/2 shadow-lg"></div>
                 <div className="md:w-1/2 md:pr-12">
-                  <ul className="bg-white p-6 rounded-xl shadow-lg space-y-2">
-                    <li className="text-forest-700">Established Jain Food Products – our first Dal Mill</li>
-                    <li className="text-forest-700">Introduced 5 flagship brands in Toor Dal & Chana Dal</li>
-                    <li className="text-forest-700">Consumers gave us our tagline: "Shudh Ahar, Swasth Pariwar"</li>
-                  </ul>
+                  <div className="bg-white p-6 rounded-xl shadow-lg">
+                    {/* No image for this entry */}
+                    <ul className="space-y-2">
+                      <li className="text-forest-700">Established Jain Food Products – our first Dal Mill</li>
+                      <li className="text-forest-700">Introduced 5 flagship brands in Toor Dal & Chana Dal</li>
+                      <li className="text-forest-700">Consumers gave us our tagline: "Shudh Ahar, Swasth Pariwar"</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -269,11 +310,23 @@ export default function AboutPage() {
                 </div>
                 <div className="absolute left-0 md:left-1/2 w-4 h-4 rounded-full bg-olive-600 border-4 border-white transform -translate-x-1/2 shadow-lg"></div>
                 <div className="md:w-1/2 md:pl-12">
-                  <ul className="bg-white p-6 rounded-xl shadow-lg space-y-2">
-                    <li className="text-forest-700">Started Jain Cottex & Agro Industries Pvt. Ltd.</li>
-                    <li className="text-forest-700">Businesses: Textiles → Cotton Bales, Cattle Feed → Cotton Seed Oil Cake</li>
-                    <li className="text-forest-700">Recognition: "Jain Group = Quality"</li>
-                  </ul>
+                  <div className="bg-white p-6 rounded-xl shadow-lg">
+                    {/* Image for this timeline entry */}
+                    {timelineImages[4] && (
+                      <div className="mb-4 flex justify-center">
+                        <img 
+                          src={timelineImages[4]} 
+                          alt="2016 Timeline" 
+                          className="w-50 h-50 object-cover rounded-lg shadow-md"
+                        />
+                      </div>
+                    )}
+                    <ul className="space-y-2">
+                      <li className="text-forest-700">Started Jain Cottex & Agro Industries Pvt. Ltd.</li>
+                      <li className="text-forest-700">Businesses: Textiles → Cotton Bales, Cattle Feed → Cotton Seed Oil Cake</li>
+                      <li className="text-forest-700">Recognition: "Jain Group = Quality"</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -291,11 +344,14 @@ export default function AboutPage() {
                 </div>
                 <div className="absolute left-0 md:left-1/2 w-4 h-4 rounded-full bg-forest-600 border-4 border-white transform -translate-x-1/2 shadow-lg"></div>
                 <div className="md:w-1/2 md:pr-12">
-                  <ul className="bg-white p-6 rounded-xl shadow-lg space-y-2">
-                    <li className="text-forest-700">Founded Cotton City Agro Pvt. Ltd., a Private Market Yard</li>
-                    <li className="text-forest-700">Enabled direct transactions between farmers & buyers</li>
-                    <li className="text-forest-700">Strengthened farmer relationships across Vidarbha</li>
-                  </ul>
+                  <div className="bg-white p-6 rounded-xl shadow-lg">
+                    {/* No image for this entry */}
+                    <ul className="space-y-2">
+                      <li className="text-forest-700">Founded Cotton City Agro Pvt. Ltd., a Private Market Yard</li>
+                      <li className="text-forest-700">Enabled direct transactions between farmers & buyers</li>
+                      <li className="text-forest-700">Strengthened farmer relationships across Vidarbha</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -313,10 +369,22 @@ export default function AboutPage() {
                 </div>
                 <div className="absolute left-0 md:left-1/2 w-4 h-4 rounded-full bg-sage-700 border-4 border-white transform -translate-x-1/2 shadow-lg"></div>
                 <div className="md:w-1/2 md:pl-12">
-                  <ul className="bg-white p-6 rounded-xl shadow-lg space-y-2">
-                    <li className="text-forest-700">Launched Manorama Industries, our new Dal Mill</li>
-                    <li className="text-forest-700">Expanded production to meet rising Toor Dal demand</li>
-                  </ul>
+                  <div className="bg-white p-6 rounded-xl shadow-lg">
+                    {/* Image for this timeline entry */}
+                    {timelineImages[6] && (
+                      <div className="mb-4 flex justify-center">
+                        <img 
+                          src={timelineImages[6]} 
+                          alt="2023 Timeline" 
+                          className="w-50 h-50 object-cover rounded-lg shadow-md"
+                        />
+                      </div>
+                    )}
+                    <ul className="space-y-2">
+                      <li className="text-forest-700">Launched Manorama Industries, our new Dal Mill</li>
+                      <li className="text-forest-700">Expanded production to meet rising Toor Dal demand</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -334,10 +402,13 @@ export default function AboutPage() {
                 </div>
                 <div className="absolute left-0 md:left-1/2 w-4 h-4 rounded-full bg-olive-700 border-4 border-white transform -translate-x-1/2 shadow-lg"></div>
                 <div className="md:w-1/2 md:pr-12">
-                  <ul className="bg-white p-6 rounded-xl shadow-lg space-y-2">
-                    <li className="text-forest-700">Entered into Cold Storage & Warehousing Solutions</li>
-                    <li className="text-forest-700">Providing safe & modern storage facilities for agri-products</li>
-                  </ul>
+                  <div className="bg-white p-6 rounded-xl shadow-lg">
+                    {/* No image for this entry */}
+                    <ul className="space-y-2">
+                      <li className="text-forest-700">Entered into Cold Storage & Warehousing Solutions</li>
+                      <li className="text-forest-700">Providing safe & modern storage facilities for agri-products</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </motion.div>
