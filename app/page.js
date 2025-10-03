@@ -62,37 +62,44 @@ const AnimatedSection = ({ children, className = "" }) => {
 
 export default function HomePage() {
   const benefits = [
-    {
-      icon: <GiPlantSeed className="w-8 h-8 text-emerald-600" />,
-      title: "Farm-Fresh Pulses",
-      desc: "Directly sourced from farmers, ensuring natural quality.",
-    },
-    {
-      icon: <GiGrain className="w-8 h-8 text-lime-600" />,
-      title: "Unpolished & Natural",
-      desc: "No polishing, preserving authentic taste & texture.",
-    },
-    {
-      icon: <BsShieldCheck className="w-8 h-8 text-amber-500" />,
-      title: "Retains Original Size",
-      desc: "No powdering or processing — just pure dal.",
-    },
-    {
-      icon: <MdOutlineHealthAndSafety className="w-8 h-8 text-emerald-500" />,
-      title: "Nutrient-Rich",
-      desc: "Packed with protein, vitamins & minerals.",
-    },
-    {
-      icon: <GiSandsOfTime className="w-8 h-8 text-lime-500" />,
-      title: "Longer Shelf Life",
-      desc: "Stays fresh longer without preservatives.",
-    },
-    {
-      icon: <FaLeaf className="w-8 h-8 text-amber-400" />,
-      title: "Natural Produce",
-      desc: "Grown responsibly, supporting sustainable farming.",
-    },
-  ];
+  {
+    icon: GiPlantSeed,
+    iconClass: "w-8 h-8 text-emerald-600",
+    title: "Farm-Fresh Pulses",
+    desc: "Directly sourced from farmers, ensuring natural quality.",
+  },
+  {
+    icon: GiGrain,
+    iconClass: "w-8 h-8 text-lime-600",
+    title: "Unpolished & Natural",
+    desc: "No polishing, preserving authentic taste & texture.",
+  },
+  {
+    icon: BsShieldCheck,
+    iconClass: "w-8 h-8 text-amber-500",
+    title: "Retains Original Size",
+    desc: "No powdering or processing — just pure dal.",
+  },
+  {
+    icon: MdOutlineHealthAndSafety,
+    iconClass: "w-8 h-8 text-emerald-500",
+    title: "Nutrient-Rich",
+    desc: "Packed with protein, vitamins & minerals.",
+  },
+  {
+    icon: GiSandsOfTime,
+    iconClass: "w-8 h-8 text-lime-500",
+    title: "Longer Shelf Life",
+    desc: "Stays fresh longer without preservatives.",
+  },
+  {
+    icon: FaLeaf,
+    iconClass: "w-8 h-8 text-amber-400",
+    title: "Natural Produce",
+    desc: "Grown responsibly, supporting sustainable farming.",
+  },
+];
+
 
   return (
     <div className="bg-[url('/grain-texture.png')] bg-fixed bg-cover bg-white overflow-hidden">
@@ -412,8 +419,13 @@ export default function HomePage() {
                   className="flex items-start gap-4 bg-white rounded-xl p-5 shadow-md hover:shadow-lg transition-all border border-amber-100"
                 >
                   <div className="flex items-center justify-center w-14 h-14 rounded-full bg-emerald-100">
-                    {benefit.icon}
-                  </div>
+  {/* Render the icon component properly */}
+  {(() => {
+    const Icon = benefit.icon;
+    return <Icon className={benefit.iconClass} />;
+  })()}
+</div>
+
                   <div>
                     <h3 className="text-lg font-semibold text-green-800">
                       {benefit.title}
