@@ -6,18 +6,18 @@ import { motion, AnimatePresence } from "framer-motion";
 const slides = [
   {
     id: 1,
-    image: "/Hero2.jpg",
-    title: "Healthy Pulses from Farms",
+    image: "/Hero2.png",
+    title: "",
     description: "",
     mobilePosition: { top: "10%", left: "50%", transform: "translateX(-50%)" },
     pcPosition: { top: "10%", left: "50%", transform: "translateX(-50%)" },
-    titleColor: "text-orange-500",
+    titleColor: "text-red-700",
     descColor: "text-yellow-600",
   },
   {
     id: 2,
-    image: "/Hero4.jpg",
-    title: "100% Natural & Pure",
+    image: "/Hero6.png",
+    title: "",
     description: "",
     mobilePosition: { top: "10%", left: "50%", transform: "translateX(-50%)" },
     pcPosition: { top: "10%", left: "50%", transform: "translateX(-50%)" },
@@ -26,18 +26,18 @@ const slides = [
   },
   {
     id: 3,
-    image: "/Hero2.jpg",
-    title: "Farm Fresh Quality",
+    image: "/Hero5.png",
+    title: "",
     description: "",
     mobilePosition: { top: "10%", left: "50%", transform: "translateX(-50%)" },
     pcPosition: { top: "10%", left: "50%", transform: "translateX(-50%)" },
-    titleColor: "text-orange-500",
-    descColor: "text-white",
+    titleColor: "text-red-600",
+    descColor: "text-yellow-600",
   },
   {
     id: 4,
-    image: "/Hero4.jpg",
-    title: "Traditional Goodness",
+    image: "/Hero6.png",
+    title: "",
     description: "",
     mobilePosition: { top: "10%", left: "50%", transform: "translateX(-50%)" },
     pcPosition: { top: "10%", left: "50%", transform: "translateX(-50%)" },
@@ -115,14 +115,15 @@ export default function Hero() {
               style={currentSlideData.pcPosition}
             >
               <motion.h1
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className={`text-4xl md:text-5xl font-extrabold mb-3 ${currentSlideData.titleColor} whitespace-nowrap`}
-                style={{ display: "inline-block" }}
-              >
-                {currentSlideData.title}
-              </motion.h1>
+  initial={{ opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, delay: 0.2 }}
+  className={`text-4xl md:text-5xl font-extrabold mb-3 ${currentSlideData.titleColor} whitespace-nowrap`}
+  style={{ display: "inline-block", fontFamily: "'Playfair Display', serif" }}
+>
+  {currentSlideData.title}
+</motion.h1>
+
 
               <motion.p
                 initial={{ opacity: 0, y: 30 }}
