@@ -249,6 +249,22 @@ export default function HomePage() {
                 features: ["Family Pack", "Economical", "Great Taste", "Versatile"],
                 tag: "Family Favorite"
               },
+              {
+  id: 4,
+  name: "Parasmani Chana Dal",
+  description: "Finely processed chana dal with exceptional flavor and texture",
+  image: "/chana_dal.png",
+  features: ["High Nutrition", "Rich in Protein", "Great Taste", "Easy to Digest"],
+  tag: "Nutritious"
+},
+{
+  id: 5,
+  name: "Jain Gold Premium Toor Dal",
+  description: "Our premium offering with superior quality and exceptional taste",
+  image: "/Jain_premium.png",
+  features: ["High Nutrition", "Premium Quality", "Rich in Protein", "Easy to Cook"],
+  tag: "Premium"
+},
             ].map((product) => (
               <SwiperSlide key={product.id}>
                 <motion.div
