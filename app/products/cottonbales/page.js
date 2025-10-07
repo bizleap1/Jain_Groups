@@ -20,7 +20,7 @@ export default function CottonBales() {
     <div className="min-h-screen bg-sage-50">
       {/* Hero - Reduced height */}
       <section className="relative w-full h-[30vh] md:h-[40vh]">
-        <img src="/banner1.jpg" alt="Cotton Bales Banner" className="w-full h-full object-cover"/>
+        <img src="/Source_supplying2.png" alt="Cotton Bales Banner" className="w-full h-full object-cover"/>
         <div className="absolute inset-0 flex items-center justify-center bg-black/40">
           <h1 className="text-white text-4xl md:text-5xl font-bold text-center">Cotton Bales and Cotton Seed</h1>
         </div>

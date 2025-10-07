@@ -35,7 +35,7 @@ export default function CottonSeedCake() {
     <div className="min-h-screen bg-sage-50">
       {/* Hero - Reduced height */}
       <section className="relative w-full h-[30vh] md:h-[40vh]">
-        <img src="/banner4.jpg" alt="Cotton Seed Oil Cake Banner" className="w-full h-full object-cover"/>
+        <img src="/Source_supplying.png" alt="Cotton Seed Oil Cake Banner" className="w-full h-full object-cover"/>
         <div className="absolute inset-0 flex items-center justify-center bg-black/40">
           <h1 className="text-white text-4xl md:text-5xl font-bold text-center">Cotton Seed Oil Cake</h1>
         </div>
