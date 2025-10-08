@@ -6,17 +6,17 @@ import { motion, AnimatePresence } from "framer-motion";
 const slides = [
   {
     id: 1,
-    image: "/Hero2.png",
+    image: "/Banner1.png",
     title: "",
     description: "",
     mobilePosition: { top: "10%", left: "50%", transform: "translateX(-50%)" },
     pcPosition: { top: "10%", left: "50%", transform: "translateX(-50%)" },
-    titleColor: "text-red-700",
+    titleColor: "text-[#E93C55]",
     descColor: "text-yellow-600",
   },
   {
     id: 2,
-    image: "/Hero6.png",
+    image: "/Banner2.png",
     title: "",
     description: "",
     mobilePosition: { top: "10%", left: "50%", transform: "translateX(-50%)" },
@@ -26,7 +26,7 @@ const slides = [
   },
   {
     id: 3,
-    image: "/Hero5.png",
+    image: "/Banner3.png",
     title: "",
     description: "",
     mobilePosition: { top: "10%", left: "50%", transform: "translateX(-50%)" },
@@ -36,7 +36,7 @@ const slides = [
   },
   {
     id: 4,
-    image: "/Hero6.png",
+    image: "/Banner4.png",
     title: "",
     description: "",
     mobilePosition: { top: "10%", left: "50%", transform: "translateX(-50%)" },

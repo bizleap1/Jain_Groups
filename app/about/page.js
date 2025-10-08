@@ -68,13 +68,13 @@ export default function AboutPage() {
 
   // Timeline images data - add images for alternate entries
   const timelineImages = [
-    "/Hero1.jpg", // 1990
+    "/about1.png", // 1990
     null, // 2000 - no image
-    "/Hero1.jpg", // 2010
+    "/about2.png", // 2010
     null, // 2012 - no image
-    "/Hero1.jpg", // 2016
+    "/about3.png", // 2016
     null, // 2020 - no image
-    "/Hero1.jpg", // 2023
+    "/about4.png", // 2023
     null, // 2024 - no image
   ];
 

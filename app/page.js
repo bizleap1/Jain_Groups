@@ -65,40 +65,41 @@ export default function HomePage() {
   {
     icon: GiPlantSeed,
     iconClass: "w-8 h-8 text-emerald-600",
-    title: "Farm-Fresh Pulses",
-    desc: "Directly sourced from farmers, ensuring natural quality.",
+    title: "Premium Quality Pulses",
+    desc: "Carefully selected and hygienically packed for everyday use.",
   },
   {
     icon: GiGrain,
     iconClass: "w-8 h-8 text-lime-600",
-    title: "Unpolished & Natural",
-    desc: "No polishing, preserving authentic taste & texture.",
+    title: "Authentic Taste",
+    desc: "Keeping the original flavor intact.",
   },
   {
     icon: BsShieldCheck,
     iconClass: "w-8 h-8 text-amber-500",
-    title: "Retains Original Size",
-    desc: "No powdering or processing — just pure dal.",
+    title: "Safe & Reliable",
+    desc: "Processed and packed under strict food safety standards.",
   },
   {
     icon: MdOutlineHealthAndSafety,
     iconClass: "w-8 h-8 text-emerald-500",
-    title: "Nutrient-Rich",
-    desc: "Packed with protein, vitamins & minerals.",
+    title: "Rich in Nutrition",
+    desc: "A good source of protein, fiber, vitamins, and minerals.",
   },
   {
     icon: GiSandsOfTime,
     iconClass: "w-8 h-8 text-lime-500",
-    title: "Longer Shelf Life",
-    desc: "Stays fresh longer without preservatives.",
+    title: "Convenient Storage",
+    desc: "Long shelf life when stored properly at home.",
   },
   {
     icon: FaLeaf,
     iconClass: "w-8 h-8 text-amber-400",
-    title: "Natural Produce",
-    desc: "Grown responsibly, supporting sustainable farming.",
+    title: "Sustainably Packed",
+    desc: "Packed responsibly to support better food practices.",
   },
 ];
+
 
 
   return (
@@ -230,7 +231,7 @@ export default function HomePage() {
                 name: "Jain Gold Natural Toor Dal",
                 description: "Premium quality toor dal with natural flavor and aroma, sourced from the finest farms",
                 image: "/Jain_gold.png",
-                features: ["100% Natural", "Rich in Protein", "No Additives", "Non-GMO"],
+                features: ["Easy to Cook", "Rich in Protein", "High Nutrition", "Great Taste"],
                 tag: "Premium"
               },
               {
@@ -315,7 +316,7 @@ export default function HomePage() {
               name: "Jain Gold Natural Toor Dal",
               description: "Premium quality toor dal with natural flavor and aroma, sourced from the finest farms",
               image: "/Jain_gold.png",
-              features: ["100% Natural", "Rich in Protein", "No Additives", "Non-GMO"],
+              features: ["Easy to Cook", "High Nutrition", "Premium Quality", "Quick Cooking"],
               tag: "Premium"
             },
             {
