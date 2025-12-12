@@ -45,21 +45,10 @@ export default function CottonSeedCake() {
       <div className="text-center max-w-4xl mx-auto py-12 px-4">
         <h2 className="text-3xl font-bold text-forest-800 mb-6">Premium Cattle Feed</h2>
         <p className="text-olive-700 text-lg md:text-xl leading-relaxed">
-          High-quality cotton seed oil cakes packed with essential nutrients for healthy livestock. 
-          Our cattle feed products are carefully processed to maintain maximum nutritional value 
-          and support optimal animal growth and milk production.
+          Discover our quality Cotton Seed Oil Cake, prepared to offer reliable nutrition and consistent performance as a premium cattle feed .
         </p>
 
-        {/* Simple navigation buttons */}
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
-          {otherSections.map(sec => (
-            <Link key={sec.name} href={sec.path}>
-              <button className="px-5 py-2 rounded-lg bg-forest-600 text-white hover:bg-forest-700 transition-colors text-sm">
-                {sec.name}
-              </button>
-            </Link>
-          ))}
-        </div>
+        
       </div>
 
       {/* Products Grid */}

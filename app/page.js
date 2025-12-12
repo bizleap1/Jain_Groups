@@ -466,29 +466,7 @@ export default function HomePage() {
       </section>
 
       {/* Partners */}
-      <AnimatedSection className="max-w-7xl mx-auto px-4 py-24">
-        <motion.h2
-          variants={fadeIn}
-          className="text-4xl font-bold text-green-900 mb-16 text-center"
-        >
-          Our Partners
-        </motion.h2>
-        <motion.div
-          variants={fadeIn}
-          className="flex flex-wrap justify-center items-center gap-12"
-        >
-          {["Partner1", "Partner 2", "partner 3"].map((partner) => (
-            <div
-              key={partner}
-              className="w-40 h-20 bg-white flex items-center justify-center rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-4 border border-amber-200"
-            >
-              <span className="text-green-800 font-semibold text-lg">
-                {partner}
-              </span>
-            </div>
-          ))}
-        </motion.div>
-      </AnimatedSection>
+      
     </div>
   );
 }

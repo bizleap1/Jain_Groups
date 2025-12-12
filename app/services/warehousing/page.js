@@ -138,28 +138,7 @@ export default function Warehousing() {
         </div>
       </section>
 
-      {/* Storage Capabilities */}
-      <section className="max-w-6xl mx-auto px-4 py-12">
-        <h2 className="text-3xl font-bold text-forest-800 mb-8 text-center">Storage Capabilities</h2>
-        <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 bg-forest-700 text-white">
-            <div className="p-4 font-semibold border-r border-forest-600">Product Type</div>
-            <div className="p-4 font-semibold border-r border-forest-600">Storage Capacity</div>
-            <div className="p-4 font-semibold border-r border-forest-600">Temperature Range</div>
-            <div className="p-4 font-semibold">Special Features</div>
-          </div>
-          {storageCapabilities.map((item, index) => (
-            <div key={index} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-b border-sage-200 last:border-b-0">
-              <div className="p-4 font-semibold text-forest-800 border-r border-sage-200">{item.product}</div>
-              <div className="p-4 text-olive-700 border-r border-sage-200">{item.capacity}</div>
-              <div className="p-4 text-olive-700 border-r border-sage-200">{item.temperature}</div>
-              <div className="p-4">
-                <span className="px-3 py-1 bg-sage-200 text-forest-700 rounded-full text-sm">Quality Maintained</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      
 
       {/* Services Section */}
       <section ref={ref} className="max-w-7xl mx-auto px-4 py-12">

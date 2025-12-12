@@ -43,7 +43,7 @@ export default function Navbar() {
     { name: "Product", path: "/products", hasDropdown: true },
     { name: "Services", path: "/services", hasDropdown: true },
     { name: "Media", path: "/media" },
-    { name: "Blog", path: "/blog" },
+    
     { name: "Contact", path: "/contact" },
   ];
 

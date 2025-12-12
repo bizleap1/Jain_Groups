@@ -70,21 +70,10 @@ export default function PulsesProtein() {
       <div className="text-center max-w-4xl mx-auto py-12 px-4">
         <h2 className="text-3xl font-bold text-forest-800 mb-6">Premium Pulses Collection</h2>
         <p className="text-olive-700 text-lg md:text-xl leading-relaxed">
-          Discover our carefully curated selection of high-quality pulses and protein-rich legumes. 
-          Each product is sourced from trusted farms and processed to maintain maximum nutritional value, 
-          flavor, and cooking excellence for your culinary needs.
+          Discover our thoughtfully selected range of quality pulses, sourced with care to bring you consistent taste, freshness, and dependable cooking results.
         </p>
 
-        {/* Simple navigation buttons */}
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
-          {otherSections.map(sec => (
-            <Link key={sec.name} href={sec.path}>
-              <button className="px-5 py-2 rounded-lg bg-forest-600 text-white hover:bg-forest-700 transition-colors text-sm">
-                {sec.name}
-              </button>
-            </Link>
-          ))}
-        </div>
+        
       </div>
 
       {/* Products Grid */}

@@ -30,21 +30,10 @@ export default function SeedsGrains() {
       <div className="text-center max-w-4xl mx-auto py-12 px-4">
         <h2 className="text-3xl font-bold text-forest-800 mb-6">Premium Seeds Collection</h2>
         <p className="text-olive-700 text-lg md:text-xl leading-relaxed">
-          Discover our carefully selected range of high-quality seeds and grains. 
-          Each product is sourced from trusted farms and processed to ensure maximum 
-          nutritional value and superior quality for your agricultural and culinary needs.
+          Experience a curated assortment of premium seeds and grains, handled with care to preserve their natural goodness and ensure reliable quality.
         </p>
 
-        {/* Simple navigation buttons */}
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
-          {otherSections.map(sec => (
-            <Link key={sec.name} href={sec.path}>
-              <button className="px-5 py-2 rounded-lg bg-forest-600 text-white hover:bg-forest-700 transition-colors text-sm">
-                {sec.name}
-              </button>
-            </Link>
-          ))}
-        </div>
+        
       </div>
 
       {/* Products Grid */}
@@ -85,13 +74,6 @@ export default function SeedsGrains() {
           </div>
         </div>
         
-        <div className="bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-dashed border-sage-300 flex items-center justify-center min-h-[500px]">
-          <div className="text-center p-6">
-            <div className="text-6xl text-sage-400 mb-4">+</div>
-            <h3 className="text-xl font-semibold text-sage-600 mb-2">More Grains Coming Soon</h3>
-            <p className="text-sage-500">We're adding new grain varieties</p>
-          </div>
-        </div>
       </section>
     </div>
   );
