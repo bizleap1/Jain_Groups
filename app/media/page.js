@@ -86,23 +86,7 @@ export default function MediaPage() {
         ))}
       </motion.section>
 
-      {/* 🔹 CTA Section */}
-      <motion.section
-        className="text-center mt-24 px-6"
-        initial={{ opacity: 0, y: 20 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.7 }}
-      >
-        <h2 className="text-3xl md:text-4xl font-bold text-brand mb-4">Want More?</h2>
-        <p className="text-olive-600 mb-6">
-          Follow us on our social channels for the latest updates and media coverage.
-        </p>
-        <div className="flex justify-center gap-6">
-          <a href="#" className="text-olive-500 hover:text-olive-700 text-2xl">Facebook</a>
-          <a href="#" className="text-forest-500 hover:text-forest-700 text-2xl">Instagram</a>
-          <a href="#" className="text-brand-dark hover:text-brand text-2xl">Twitter</a>
-        </div>
-      </motion.section>
+      
     </div>
   );
 }
